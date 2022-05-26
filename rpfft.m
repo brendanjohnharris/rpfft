@@ -20,4 +20,5 @@ if ~mod(length(Y), 2); phi_ = [phi_, 0]; end
 phi(fs < 0) = -flip(phi_); % Maintain symmetry along the temporal dimension
 disp(phi)
 S = ifft(abs(F).*exp(1i*phi));
+S = S + m
 end
