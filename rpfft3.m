@@ -1,9 +1,12 @@
 function S = rpfft3(X, options)
 % RPFFT3 Compute one random fourier surrogate of the input array X by taking the three dimensional Fourier transform, assigning random phases to all frequency components, then inverse fourier transforming the result.
-% The symmetry condition is F(i, j, k) = F(-i, -j, -k) for i, j, k > 0 (?)
+% Options:
+%   'subsample' - number of points in the Fourier transform
+% The symmetry condition is F(i, j, k) = F(-i, -j, -k) for i, j, k > 0
 arguments
     X (:,:,:) {mustBeNumeric}
-    options.subsample logical
+    options.subsample logical = false
+    options.oddfix Integer = 0
 end
 
 if any(isnan(X)); error("Input contains NaN's"); end
