@@ -2,7 +2,7 @@ function S = rpfft2(X, options)
 arguments
     X (:,:) {mustBeNumeric}
     options.subsample logical = false
-    options.oddfix Integer = 0
+    options.oddfix int64 = 0
 end
 
 if any(isnan(X)); error("Input contains NaN's"); end
